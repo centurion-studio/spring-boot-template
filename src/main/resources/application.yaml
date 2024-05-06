@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:database
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true # Insert data after Hibernate initialization
+    open-in-view: false
+
+springdoc:
+  show-actuator: true
+
+# actuators
+management:
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: health, metrics, mappings
